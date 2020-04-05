@@ -14,7 +14,7 @@
 	<c:if test ="${not empty enquiries}">
 		<c:forEach items="${enquiries.siblings}" var="sibling" varStatus="status">
 				<tr>
-					<td>Siblings Age</td>
+					<td>Sibling Age : </td>
 					<td><form:input path="siblings[${status.index}].ageInYears" value="${sibling.ageInYears}"/></td>
 				</tr>
 				<tr>
