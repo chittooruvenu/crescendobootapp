@@ -13,12 +13,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.validator.constraints.Email;
 
 import com.crescendo.app.core.utils.EnquirySequenceIdGenerator;
 
@@ -37,8 +38,7 @@ public class Enquiry {
 	private String enquiryId;
 
 	@Column(name = "CHILD_NAME", length = 50)
-	// @NotBlank(message="Please enter Child Name")
-	@Size(min=3, max=30, message="Child Name must be 3 to 30 characters in length.")
+	@Size(min=3, max=30, message="Name length must be must be 3 to 30 characters.")
 	private String childName;
 
 	@Column(name = "DATE_OF_BIRTH", length = 12)
@@ -47,7 +47,7 @@ public class Enquiry {
 	@Min(value=2, message = "Age must be minimum of 2 years")
 	@Column(name = "AGE_IN_YEARS", length = 2)
 	private int ageInYears;
-	@Max(value = 11)
+	
 	@Column(name = "NUMBER_OF_MONTHS", length = 2)
 	private int numberOfMonths;
 
@@ -65,10 +65,12 @@ public class Enquiry {
 
 	@Column(name = "FATHERS_PLACE_OF_WORK", length = 32)
 	private String fathersPlaceOfWork;
-
+	
+	@Pattern(regexp="^.*(?=.{10,})(?=.*[0-9]).*$", message = "Phone Number must be of 10 digits")
 	@Column(name = "FATHERS_PHONE_NUMBER", length = 10)
-	private long fathersPhoneNumber;
-
+	private String fathersPhoneNumber;
+	
+	@Email(message = "Invalid Email (Eg : a1@gmail.com)")
 	@Column(name = "FATHERS_EMAIL_ID", length = 32)
 	private String fathersEmailId;
 
@@ -80,10 +82,12 @@ public class Enquiry {
 
 	@Column(name = "MOTHERS_PLACE_OF_WORK", length = 32)
 	private String mothersPlaceOfWork;
-
+	
+	@Pattern(regexp="^.*(?=.{10,})(?=.*[0-9]).*$", message = "Phone Number must be of 10 digits")
 	@Column(name = "MOTHERS_PHONE_NUMBER", length = 10)
-	private long mothersPhoneNumber;
-
+	private String mothersPhoneNumber;
+	
+	@Email(message = "Invalid Email (Eg : a1@gmail.com)")
 	@Column(name = "MOTHERS_EMAIL_ID", length = 32)
 	private String mothersEmailId;
 
@@ -104,7 +108,7 @@ public class Enquiry {
 
 	@Column(name = "DATE_OF_ENQUIRY", length = 12)
 	private String dateOfEnquiry;
-
+	@Size(max=32, message="Admission Status should not be more than 32 characters.")
 	@Column(name = "ADMISSION_STATUS", length = 16)
 	private String admissionStatus;
 
@@ -120,8 +124,8 @@ public class Enquiry {
 
 	public Enquiry(String enquiryId, String childName, String dateOfBirth, int ageInYears, int numberOfMonths,
 			String gender, String gradeEnquiring, String fathersName, String fathersOccupation,
-			String fathersPlaceOfWork, long fathersPhoneNumber, String fathersEmailId, String mothersName,
-			String mothersOccupation, String mothersPlaceOfWork, long mothersPhoneNumber, String mothersEmailId,
+			String fathersPlaceOfWork, String fathersPhoneNumber, String fathersEmailId, String mothersName,
+			String mothersOccupation, String mothersPlaceOfWork, String mothersPhoneNumber, String mothersEmailId,
 			List<Sibling> siblings, String residentialAddress, long landLineNumber, String challengesAndSpecialities,
 			String expectationFromSchool, String dateOfEnquiry, String admissionStatus, String referredBy,
 			List<FollowUp> followUps) {
@@ -222,11 +226,11 @@ public class Enquiry {
 		this.fathersPlaceOfWork = fathersPlaceOfWork;
 	}
 
-	public long getFathersPhoneNumber() {
+	public String getFathersPhoneNumber() {
 		return fathersPhoneNumber;
 	}
 
-	public void setFathersPhoneNumber(long fathersPhoneNumber) {
+	public void setFathersPhoneNumber(String fathersPhoneNumber) {
 		this.fathersPhoneNumber = fathersPhoneNumber;
 	}
 
@@ -254,11 +258,11 @@ public class Enquiry {
 		this.mothersPlaceOfWork = mothersPlaceOfWork;
 	}
 
-	public long getMothersPhoneNumber() {
+	public String getMothersPhoneNumber() {
 		return mothersPhoneNumber;
 	}
 
-	public void setMothersPhoneNumber(long mothersPhoneNumber) {
+	public void setMothersPhoneNumber(String mothersPhoneNumber) {
 		this.mothersPhoneNumber = mothersPhoneNumber;
 	}
 

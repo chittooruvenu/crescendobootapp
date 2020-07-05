@@ -101,6 +101,12 @@ public class FollowUp implements Serializable {
 	public void setEnquiries(Enquiry enquiries) {
 		this.enquiries = enquiries;
 	}
+
+	@Override
+	public String toString() {
+		return "FollowUp [followUpId=" + followUpId + ", followUpDate=" + followUpDate + ", nextFollowUpDate="
+				+ nextFollowUpDate + ", remarks=" + remarks + ", enquiries=" + enquiries + "]";
+	}
 	
 	
 

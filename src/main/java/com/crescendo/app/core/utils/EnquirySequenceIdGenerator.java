@@ -12,7 +12,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.type.LongType;
 import org.hibernate.type.Type;
 
-public class EnquirySequenceIdGenerator extends SequenceStyleGenerator{
+public class EnquirySequenceIdGenerator extends SequenceStyleGenerator {
 	
 	public static final String VALUE_PREFIX_PARAMETER = "valuePrefix";
     public static final String VALUE_PREFIX_DEFAULT = "";

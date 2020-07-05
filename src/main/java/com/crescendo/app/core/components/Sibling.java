@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "siblings")
@@ -25,6 +26,10 @@ public class Sibling implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="SIBLING_NUMBER", unique = true, nullable = false, length = 10)
 	private int siblingNumber;
+	
+	@Size(min=3, max=30, message="Name length must be must be 3 to 30 characters.")
+	@Column(name="SIBLING_NAME", length = 2)
+	private String siblingName;
 	
 	@Column(name="AGE_IN_YEARS", length = 2)
 	private int ageInYears;
@@ -72,18 +77,27 @@ public class Sibling implements Serializable{
 		this.gender = gender;
 	}
 	
+	public String getSiblingName() {
+		return siblingName;
+	}
+
+	public void setSiblingName(String siblingName) {
+		this.siblingName = siblingName;
+	}
+
 	@Override
 	public String toString() {
-		return "Sibling [siblingNumber=" + siblingNumber + ", ageInYears=" + ageInYears
-				+ ", numberOfMonths=" + numberOfMonths + ", gender=" + gender + ", enquiry=" + enquiries + "]";
+		return "Sibling [siblingNumber= " + siblingNumber + ",siblingName= " + siblingName + ", ageInYears=" + ageInYears
+				+ ", numberOfMonths= " + numberOfMonths + ", Gender= " + gender + ", enquiry=" + enquiries + "]";
 	}
 	
 	
 	
 
-	public Sibling(int siblingNumber, int ageInYears, int numberOfMonths, String gender, Enquiry enquiries) {
+	public Sibling(int siblingNumber, String siblingName, int ageInYears, int numberOfMonths, String gender, Enquiry enquiries) {
 		super();
 		this.siblingNumber = siblingNumber;
+		this.siblingName = siblingName;
 		this.ageInYears = ageInYears;
 		this.numberOfMonths = numberOfMonths;
 		this.gender = gender;
