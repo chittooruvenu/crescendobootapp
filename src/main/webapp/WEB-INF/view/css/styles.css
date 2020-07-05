@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+
+.footer {
+    padding-top: 280px;
+    padding-bottom: 0px;
+}
+
+.container {
+        width: 100%;
+    }
+
+.pagedetails, .menudetails {
+		float: left; 
+        padding: 20px;
+        min-height: 170px;
+        box-sizing: border-box;
+}
+
+.menudetails {            
+        width: 20%;             
+        background: #f2f2f2;
+}
+.pagedetails {
+        width: 80%;
+}
+
+
