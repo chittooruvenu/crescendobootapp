@@ -9,5 +9,6 @@
 <body>
 <a href="enquiries/new">Create Enquiry</a>  
 <a href="enquiries/viewenquiries">View Enquiries</a>  
+<%@include file="Logout.jsp"%>
 </body>
 </html>

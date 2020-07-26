@@ -29,7 +29,7 @@
 	<form:form method="post" modelAttribute="admissionForm"
 		action="/admissions/create">
 		<div class="container">
-			<%@include file="header.html"%>
+			<%@include file="header.html"%>z
 			<div style="background-color: #f2f2f2" align="center">
 				<h2>${createOrupdate} Admission</h2>
 			</div>

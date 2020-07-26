@@ -17,11 +17,11 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
+/*@Configuration
 @EnableJpaRepositories
 @EnableTransactionManagement
 @ComponentScan(basePackages="com.crescendo.app")
-public class PersistenceJPAConfig {
+*/public class PersistenceJPAConfig {
 	
 	
 	static {
@@ -33,7 +33,6 @@ public class PersistenceJPAConfig {
         super();
     }
 
-	
 	@Bean
 	   public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		System.out.println("In entityManagerFactory method");
@@ -53,9 +52,9 @@ public class PersistenceJPAConfig {
 	public DataSource dataSource(){
 	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	    dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");	
-	    dataSource.setUrl("jdbc:mysql://localhost:3306/crescendo");
+	    dataSource.setUrl("jdbc:mysql://localhost:3306/test");
 	    dataSource.setUsername( "root" );
-	    dataSource.setPassword( "raja" );
+	    dataSource.setPassword( "venu23" );
 	    return dataSource;
 	}
 	

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -12,8 +12,10 @@
 <title>View Enquiries</title>
 </head>
 <body>
+	<%@include file="Logout.jsp"%>
 	<form:form method="get" modelAttribute="viewEnquiries">
 		<%@ include file="header.html"%>
+	
 		<c:if test="${not empty viewEnquiries}">
 			<div style="background-color: #f2f2f2" align="center"><h2>View Enquiries</h2></div>
 			<div class="container">

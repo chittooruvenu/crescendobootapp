@@ -5,11 +5,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="/css/styles.css">
-
+<%@include file="Logout.jsp"%>
 <title>No Data found page</title>
 </head>
 <body>
 	<%@include file="header.html"%>
+	
 	<div style="background-color: #f2f2f2" align="center">
 		<h2>No Data found</h2>
 	</div>

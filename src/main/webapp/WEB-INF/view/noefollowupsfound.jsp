@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="/css/styles.css">
-
+<%@include file="Logout.jsp"%>
 <title>No FollowUps found page</title>
 </head>
 <body>
