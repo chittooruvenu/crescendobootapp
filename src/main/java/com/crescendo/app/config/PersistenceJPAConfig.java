@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /*@Configuration
 @EnableJpaRepositories
 @EnableTransactionManagement
-@ComponentScan(basePackages="com.crescendo.app")
+@ComponentScan(basePackages="com.crescendo.app")ll
 */public class PersistenceJPAConfig {
 	
 	
